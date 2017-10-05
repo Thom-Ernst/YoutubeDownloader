@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Youtube Downloader</title>
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+<form id="urlform">
+    <label for="inputUrl">Paste the url</label>
+    <input type="text" name="inputUrl" id="inputUrl" placeholder="https://www.youtube.com/watch?v=7bMYhJ_UqnE">
+    <br>
+    <button id="linkbtn" type="button">Convert and download!</button>
+</form>
+<script>
+            $(function () {
+                $('#linkbtn').click(function () {
+
+                    $.ajax({
+                        url: '/process',
+                        data: $('form').serialize(),
+                        type: 'POST',
+                        success: function (response) {
+                            console.log(response);
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+                });
+            });
+</script>
+</body>
+</html>
