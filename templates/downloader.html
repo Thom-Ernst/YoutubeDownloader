@@ -9,34 +9,57 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
+<header>
+<h1>
+    Thom Ernst projects
+</h1>
+<a href="/">
+    <button>
+        Home
+    </button>
+</a>
+<a href="downloader">
+    <button>
+        Youtube Downloader
+    </button>
+</a>
+</header>
+<hr>
+<main>
 <form id="urlform">
     <label for="inputUrl">Paste the url</label>
     <input type="text" name="inputUrl" id="inputUrl" placeholder="https://www.youtube.com/watch?v=7bMYhJ_UqnE">
     <br>
     <button id="linkbtn" type="button">Convert!</button>
 </form>
+<br>
 <a href="processed">
     <button>
         Download
     </button>
 </a>
 <script>
-            $(function () {
-                $('#linkbtn').click(function () {
-
-                    $.ajax({
-                        url: '/process',
-                        data: $('form').serialize(),
-                        type: 'POST',
-                        success: function (response) {
-                            console.log(response);
-                        },
-                        error: function (error) {
-                            console.log(error);
-                        }
-                    });
-                });
-            });
+$(function () {
+        $('#linkbtn').click(function () {
+        $.ajax({
+            url: '/process',
+            data: $('form').serialize(),
+            type: 'POST',
+            success: function (response) {
+                console.log(response);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+});
 </script>
+<hr>
+<div>
+    <h2>How to use:</h2>
+    <p>step 1:<br>Paste the link in the provided area.<br>step 2:<br>Click convert.<br>step 3:<br>After the process has finished click download.</p>
+</div>
+</main>
 </body>
 </html>

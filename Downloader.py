@@ -10,7 +10,11 @@ class Downloader:
     @staticmethod
     def getdata(url):
         yt = YouTube(url)
-        return yt.get_videos()
+        def fixres():
+            global yt
+            res = yt.get_videos()
+            return res
+        return fixres()
 
     @staticmethod
     def download(url, res):

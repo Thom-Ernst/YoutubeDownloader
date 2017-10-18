@@ -22,7 +22,7 @@ def process():
     url = request.form['inputUrl']
     global name
     name = Downloader.getname(url)
-    Downloader.getdata(url)
+    # Downloader.getdata(url)
     res = '360p'
     print("downloading...")
     Downloader.download(url, res)
