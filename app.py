@@ -6,6 +6,7 @@ from mp4tomp3 import m4tm3
 app = Flask(__name__)
 name = ""
 
+
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -37,3 +38,7 @@ def processed():
     print("returning file as mp3: {0}".format(name))
     return send_from_directory('./files/fresh', '{0}.mp3'.format(name),
                                as_attachment=True, attachment_filename=name + '.mp3')
+
+
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0')
